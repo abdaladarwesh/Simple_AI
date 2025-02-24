@@ -6,7 +6,15 @@ def loadDataFile(filePath) -> dict:
         data = json.load(file)
     return data
 
-def updateDataFile(filePath, data: dict):
+def updateDataFile(filePath, new_entry: dict):
+    try:
+        with open(filePath, 'r') as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        data = {'questions': []}
+
+    data['questions'].append(new_entry)
+
     with open(filePath, 'w') as file:
         json.dump(data, file, indent=2)
 
@@ -20,22 +28,3 @@ def get_answer(question, data: dict) -> str:
             return q['answer']
     return None
 
-def main():
-    data = loadDataFile('data.json')
-    while True:
-        question = input('You: ')
-        if question == 'exit':
-            break
-        bestMatch: str = find_best_match(question, [q['question'] for q in data['questions']])
-        if bestMatch:
-            answer = get_answer(bestMatch, data)
-            print(f'Bot: {answer}')
-        else:
-            print('Bot: Sorry, I do not know the answer. Can you teach me?')
-            newAnswer = input('You: ')
-            data['questions'].append({'question': question, 'answer': newAnswer})
-            updateDataFile('data.json', data)
-            print('Bot: Thank you for teaching me')
-
-if __name__ == "__main__":
-    main()
