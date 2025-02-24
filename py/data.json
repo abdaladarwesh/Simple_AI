@@ -1,0 +1,52 @@
+{
+  "questions": [
+    {
+      "question": "hello",
+      "answer": "hi welcome"
+    },
+    {
+      "question": "",
+      "answer": "you didnt enter any thing"
+    },
+    {
+      "question": "",
+      "answer": "you didnt enter any thing"
+    },
+    {
+      "question": "",
+      "answer": ""
+    },
+    {
+      "question": "& \"C:/Program Files/Python313/python.exe\" p:/coding/pyoop/py/ai.py",
+      "answer": "exit"
+    },
+    {
+      "question": "",
+      "answer": ""
+    },
+    {
+      "question": "",
+      "answer": "none"
+    },
+    {
+      "question": "what is the capital of france",
+      "answer": "paris"
+    },
+    {
+      "question": "how can i make the bread of flour",
+      "answer": "you can search on that"
+    },
+    {
+      "question": "how can i download minecarft",
+      "answer": "you can search on that"
+    },
+    {
+      "question": "how can i make a ai",
+      "answer": "you can search on that"
+    },
+    {
+      "question": "how can i learn java\\",
+      "answer": "you can search on that"
+    }
+  ]
+}
