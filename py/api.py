@@ -5,10 +5,6 @@ from ai import loadDataFile, updateDataFile, find_best_match, get_answer
 app = Flask(__name__)
 api = Api(app)
 
-questions = reqparse.RequestParser()
-questions.add_argument('question', type=str, required=True, help="you must enter a question")
-questions.add_argument('answer', type=str, required=True, help="you must enter an answer")
-
 class AI(Resource):
     
     def get(self):
@@ -16,7 +12,7 @@ class AI(Resource):
         return jsonify(data)
     
     def post(self):
-        data = questions.parse_args()
+        data = request.get_json()
         updateDataFile('data.json', data)
         return {"message": "Data updated successfully"}, 200
     
